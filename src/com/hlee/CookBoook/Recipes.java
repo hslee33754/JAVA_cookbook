@@ -1,51 +1,56 @@
-package com.hlee.CookBoook;
+package com.hlee.CookBook;
 
 import java.util.ArrayList;
 
 public class Recipes implements ManageItems{
-	
-	//private field
-	private ArrayList<Recipe> recipies = new ArrayList<Recipe>();
-	
-	//public getter and setter
-	public ArrayList<Recipe> getRecipies() {
-		return recipies;
-	}
-
-	public void setRecipies(ArrayList<Recipe> recipies) {
-		this.recipies = recipies;
-	}
-
-	@Override
-	public void add(Item i) {
-		recipies.add((Recipe) i);
-		
-	}
-
-	@Override
-	public void edit(Item i) {
-		for(Item it : recipies){
-			if(it.getName()==i.getName()){
-				it =i;
-			}
-		}
-	}
-
-	@Override
-	public void remove(Item i) {
-		for(Item it : recipies){
-			if(it.getName()==i.getName()){
-				recipies.remove(it);
-			}
-		}		
-	}
-
-	@Override
-	public Item getItem(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
-
+    
+    //private field
+    private ArrayList<Item> Recipes = new ArrayList<Item>();
+    
+    //public getter and setter
+    public ArrayList<Item> getRecipies() {
+        return Recipes;
+    }
+    
+    public void setRecipies(ArrayList<Item> recipies) {
+        this.Recipes = recipies;
+    }
+    
+    @Override
+    public void add(Item i) {
+        Recipes.add(i);
+        
+    }
+    
+    @Override
+    public void edit(Item i) {
+        for(Item it : Recipes){
+            if(it.getName()==i.getName()){
+                it =i;
+            }
+        }
+    }
+    
+    @Override
+    public void remove(Item i) {
+        for(Item it : Recipes){
+            if(it.getName()==i.getName()){
+                Recipes.remove(i);
+            }
+        }
+        
+    }
+    
+    @Override
+    public Item getItem(String name) {
+        Item it = null;
+        for(Item in : Recipes){
+            if(in.getName().equals(name)){
+                it=in;
+            }
+        }
+        return it;
+    }
+    
+    
 }
